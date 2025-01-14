@@ -21,9 +21,9 @@ vim.keymap.set('n', '<leader>pe', function()
   vim.cmd.RustLsp { 'explainError', 'current' }
 end, { desc = '[E]xplain this error ', buffer = true })
 
-vim.keymap.set('n', '<leader>pd', function()
+vim.keymap.set('n', '<leader>pD', function()
   vim.cmd.RustLsp { 'renderDiagnostic', 'current' }
-end, { desc = '[P]opup [D]iagnostic ', buffer = true })
+end, { desc = '[P]opup [D]iagnostic (rustc) ', buffer = true })
 
 vim.keymap.set('n', 'gR', function()
   vim.cmd.RustLsp { 'relatedDiagnostics' }

@@ -5,6 +5,9 @@
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Exit insert mode for colemak bros
+vim.keymap.set('i', 'tn', '<Esc>')
+
 -- Diagnostic keymaps
 -- Populate the quickfix list with the diagnostics. Probably a little bit of overlap with the Trouble plugin, but that is fine.
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })

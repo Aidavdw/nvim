@@ -1,3 +1,10 @@
+-- nvim-dap doesn't have a UI. this is the actual UI.
+-- If the UI opens and closes immediately, then most likely your breakpoint is not being hit.
+-- This could be because:
+-- a) you are a dumdum and you did not set a breakpoint
+-- b) your breakpoint is never hit (e.g. set after the program exits)
+-- c) you put your breakpoint on a line calling a function, and it exits/crashes within that function. try setting a breakpoint a little before that line instead.
+
 return {
   {
     'rcarriga/nvim-dap-ui',

@@ -1,6 +1,6 @@
 -- This file contains settings specifically for neovide, so only load them if the editor session is actually neovide (below code is not run in terminal)
 if vim.g.neovide then
-  vim.o.guifont = 'JetBrainsMono Nerd Font:h9.5'
+  vim.o.guifont = 'Iosevka Nerd Font:h9.5'
   vim.g.neovide_cursor_animation_length = 0.04
   vim.g.neovide_cursor_vfx_mode = 'wireframe'
   -- By default, neovide does not do anything with ctrl-shift-c / v, because that is typically handled by the terminal emulator. Hence, add this back in when running in neovide.

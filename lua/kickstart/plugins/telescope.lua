@@ -68,10 +68,23 @@ return {
           },
         },
         defaults = {
-          -- Exclude the contents from .git for any of the search actions.
+          -- Exclude all these files from any search actions!
           file_ignore_patterns = {
             '.git',
             '.github',
+            'license.%a*',
+            'LICENSE.%a*',
+            'LICENSE',
+          },
+          vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden',
           },
         },
       }

@@ -67,6 +67,13 @@ return {
             require('telescope.themes').get_dropdown(),
           },
         },
+        defaults = {
+          -- Exclude the contents from .git for any of the search actions.
+          file_ignore_patterns = {
+            '.git',
+            '.github',
+          },
+        },
       }
 
       -- Enable Telescope extensions if they are installed
@@ -77,7 +84,10 @@ return {
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch in [K]eymaps' })
-      vim.keymap.set('n', '<leader>of', builtin.find_files, { desc = '[O]pen [F]ile' })
+      -- Also find hidden files like `.bashrc`, but not files that are in the .gitignore
+      vim.keymap.set('n', '<leader>of', function()
+        builtin.find_files { hidden = true }
+      end, { desc = '[O]pen [F]ile' })
       vim.keymap.set('n', '<leader>so', builtin.builtin, { desc = '[S]earch [O]ther...+' })
       vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind [W]ord under cursor' })
       vim.keymap.set('n', '<leader>fa', builtin.live_grep, { desc = '[F]ind in [A]ll files (Grep)' })

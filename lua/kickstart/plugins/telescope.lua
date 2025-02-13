@@ -64,7 +64,8 @@ return {
         -- pickers = {}
         extensions = {
           ['ui-select'] = {
-            require('telescope.themes').get_dropdown(),
+            -- Redirects native vim selection menus through Telescope. By default, uses the .get_dropdown(), but the boxes are usually way too small, so stuff gets cut off. Instead, use get_ivy(), a picker that attaches to the bottom of the screen.
+            require('telescope.themes').get_ivy(),
           },
         },
         defaults = {
@@ -75,6 +76,7 @@ return {
             'license.%a*',
             'LICENSE.%a*',
             'LICENSE',
+            'Cargo.lock',
           },
           vimgrep_arguments = {
             'rg',
@@ -112,7 +114,7 @@ return {
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-        builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        builtin.current_buffer_fuzzy_find(require('telescope.themes').get_ivy {
           winblend = 10,
           previewer = false,
         })

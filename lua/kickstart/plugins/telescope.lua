@@ -69,6 +69,11 @@ return {
           },
         },
         defaults = {
+          mappings = {
+            i = {
+              ['tn'] = require('telescope.actions').close,
+            },
+          },
           -- Exclude all these files from any search actions!
           file_ignore_patterns = {
             '.git',

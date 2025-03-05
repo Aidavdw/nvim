@@ -10,16 +10,6 @@ vim.keymap.set('n', '<leader>us', function()
   vim.cmd.RustLsp { 'testables' }
 end, { desc = '[S]how testables ', buffer = true })
 
--- For this one, we want to be able to run the previous test again, even from a different buffer. So, remove buffer=true. Side effect is you can re-run them if you closed all rust files.
-vim.keymap.set('n', '<leader>ua', function()
-  vim.cmd.RustLsp { 'testables', bang = true }
-end, { desc = '[U]nittest previous [A]gain ' })
-
--- Same as above. So, remove buffer=true. Side effect is you can re-run them if you closed all rust files.
-vim.keymap.set('n', '<leader>da', function()
-  vim.cmd.RustLsp { 'debuggables', bang = true }
-end, { desc = '[D]ebug previous [A]gain ' })
-
 vim.keymap.set('n', '<leader>pe', function()
   vim.cmd.RustLsp { 'explainError', 'current' }
 end, { desc = '[E]xplain this error ', buffer = true })

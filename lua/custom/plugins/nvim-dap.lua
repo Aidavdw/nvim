@@ -6,6 +6,11 @@ return {
       vim.fn.sign_define('DapBreakpoint', { text = '', texthl = '', linehl = '', numhl = '' })
       vim.fn.sign_define('DapStopped', { text = '▶️', texthl = '', linehl = '', numhl = '' })
 
+      -- Automatically break if C exception or rust panic.
+      -- https://www.reddit.com/r/neovim/comments/13o3xzv/rustcodelldbnvimdaprusttools_add_automatically_a/
+      -- Maybe can extend this to automatically break if an Error variant is returned?
+      dap.defaults.fallback.exception_breakpoints = { 'rust_panic' }
+
       -- Conditionally set keybinds, only during DAP session.
       -- Inspired by https://github.com/mfussenegger/dotfiles/blob/e7abb9a13f8fb3075704ed703dd973ecf3502cc3/vim/.config/nvim/lua/me/dap.lua#L64-L75
       dap.listeners.after.event_initialized['custom.dap.keys'] = function()
@@ -27,7 +32,10 @@ return {
       vim.keymap.set('n', '<F10>', dap.step_over, { desc = 'Debug ' })
       vim.keymap.set('n', '<F11>', dap.step_into, { desc = 'Debug ' })
       vim.keymap.set('n', '<F12>', dap.step_out, { desc = 'Debug ' })
+
       vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = 'Toggle [B]reakpoint' })
+      vim.keymap.set('n', '<leader>df', dap.up, { desc = '[F]rame up' })
+      vim.keymap.set('n', '<leader>dF', dap.down, { desc = '[F]rame down' })
     end,
   },
 }

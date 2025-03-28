@@ -20,6 +20,9 @@ vim.keymap.set('n', 'gZ', function()
   vim.diagnostic.goto_prev { float = true }
 end, { desc = 'Go to previous diagnostic' })
 
+-- Switch windows quickly
+vim.api.nvim_set_keymap('n', '<leader>n', '<C-w>w', { noremap = true, silent = true, desc = 'Switch active split' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.

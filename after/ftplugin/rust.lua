@@ -10,6 +10,10 @@ vim.keymap.set('n', '<leader>us', function()
   vim.cmd.RustLsp { 'testables' }
 end, { desc = '[S]how testables ', buffer = true })
 
+vim.keymap.set('n', '<leader>ds', function()
+  vim.cmd.RustLsp { 'debuggables' }
+end, { desc = '[S]how debuggables ', buffer = true })
+
 vim.keymap.set('n', '<leader>pe', function()
   vim.cmd.RustLsp { 'explainError', 'current' }
 end, { desc = '[E]xplain this error ', buffer = true })

@@ -41,5 +41,9 @@ return {
     --
     -- Open the note under the cursor in a split
     vim.keymap.set('n', '<leader>ol', ':ObsidianFollowLink vsplit<CR>', { silent = true, noremap = true, desc = '[O]pen [L]inked in split ' })
+    vim.keymap.set('n', '<leader>ft', ':ObsidianBacklinks<CR>', { silent = true, noremap = true, desc = '[F]ind links [T]o others ' })
+    vim.keymap.set('n', '<leader>ff', ':ObsidianLinks<CR>', { silent = true, noremap = true, desc = '[F]ind links [F]rom others ' })
+    vim.keymap.set('n', '<leader>fT', ':ObsidianTags<CR>', { silent = true, noremap = true, desc = '[F]ind notes with [T]ag ' })
+    -- :ObsidianRename is still a little too unstable, add later. For now, just do that through obsidian.
   end,
 }

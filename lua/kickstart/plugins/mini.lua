@@ -3,7 +3,6 @@ return {
     'echasnovski/mini.nvim',
     config = function()
       -- Better Around/Inside textobjects
-      --
       -- Examples:
       --  - va)  - [V]isually select [A]round [)]paren
       --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
@@ -11,10 +10,10 @@ return {
       require('mini.ai').setup { n_lines = 500 }
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
-      --
-      -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-      -- - sd'   - [S]urround [D]elete [']quotes
-      -- - sr)'  - [S]urround [R]eplace [)] [']
+      -- `saw(` - add '(' around word
+      -- `sa$'` - add `'` from this point up until the end of the line.
+      -- `sr[(` - replace surrounding '[]' with '()', e.g. 'some (text  and) more' ￫ 'some [text and] more'
+      -- `sd[` - replace surrounding '[]' with '()', e.g. 'some (text  and) more' ￫ 'some text and]more'
       require('mini.surround').setup()
 
       -- Simple and easy statusline.
@@ -31,6 +30,11 @@ return {
       statusline.section_location = function()
         return '%2l:%-2v'
       end
+
+      -- When inserting a '(', also automatically insert a ')' (closing pairs, also for others like ({['``']})
+      require('mini.pairs').setup()
+      -- Filetype icons
+      require('mini.icons').setup()
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim

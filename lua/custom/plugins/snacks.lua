@@ -16,4 +16,11 @@ return {
     -- Nicer whichkey display
     -- toggle = { enabled = true, which_key = true },
   },
+  keys = { {
+    '<leader>wn',
+    function()
+      Snacks.notifier.show_history()
+    end,
+    desc = '[W]indow: [N]otification History',
+  } },
 }

@@ -74,15 +74,8 @@ return {
               ['tn'] = require('telescope.actions').close,
             },
           },
+          -- Using `file_ignore_patterns` is very slow. Instead, defer this to ripgrep.
           -- Exclude all these files from any search actions!
-          file_ignore_patterns = {
-            '.git',
-            '.github',
-            'license.%a*',
-            'LICENSE.%a*',
-            'LICENSE',
-            'Cargo.lock',
-          },
           vimgrep_arguments = {
             'rg',
             '--color=never',
@@ -91,7 +84,22 @@ return {
             '--line-number',
             '--column',
             '--smart-case',
+            -- Allow looking through hidden files.
             '--hidden',
+            -- If --hidden is set, then git folders are also looked through. Filter them again.
+            '-g',
+            '!.github/',
+            '-g',
+            '!.git/',
+            -- And more files to ignore
+            '-g',
+            '!Cargo.lock',
+            '-g',
+            '!license.*',
+            '-g',
+            '!LICENSE.*',
+            '-g',
+            '!LICENSE',
           },
         },
       }

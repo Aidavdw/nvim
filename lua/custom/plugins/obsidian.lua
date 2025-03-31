@@ -12,30 +12,34 @@ return {
   --   "BufNewFile path/to/my-vault/*.md",
   -- },
   dependencies = {
-    -- Required.
     'nvim-lua/plenary.nvim',
-
-    -- see below for full list of optional dependencies 👇
-  },
-  opts = {
-    workspaces = {
-      {
-        name = 'notes',
-        path = '/alt/obsidian/notes',
-      },
-      {
-        name = 'japanese',
-        path = '/alt/obsidian/japanese/',
-      },
-    },
-
-    -- see below for full list of options 👇
   },
   attachments = {
-    -- The default folder to place images in via `:ObsidianPasteImg`.
-    -- If this is a relative path it will be interpreted as relative to the vault root.
-    -- You can always override this per image by passing a full path to the command instead of just a filename.
     -- Where to place new images, also via `:ObsidianPasteImg`.
     img_folder = 'media',
   },
+  config = function()
+    local obsidian = require 'obsidian'
+    obsidian.setup {
+      workspaces = {
+        {
+          name = 'notes',
+          path = '/alt/obsidian/notes',
+        },
+        {
+          name = 'japanese',
+          path = '/alt/obsidian/japanese/',
+        },
+      },
+    }
+
+    -- Unfortunately, obsidian.nvim is not very performant.
+    -- Hence, forego the use of the following functionality for their alternatives:
+    -- ObsidianQuickSwitch ￫ telescope open file
+    -- ObsidianSearch ￫ telescope livegrep
+    --
+    --
+    -- Open the note under the cursor in a split
+    vim.keymap.set('n', '<leader>ol', ':ObsidianFollowLink vsplit<CR>', { silent = true, noremap = true, desc = '[O]pen [L]inked in split ' })
+  end,
 }

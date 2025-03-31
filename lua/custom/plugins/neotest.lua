@@ -13,23 +13,23 @@ return {
         adapters = { require 'rustaceanvim.neotest' },
       }
 
-      vim.keymap.set('n', '<leader>ut', neotest.run.run, { desc = 'run [U]nit test: [T]his' })
+      vim.keymap.set('n', '<leader>tt', neotest.run.run, { desc = 'run [T]est: [T]his' })
 
-      vim.keymap.set('n', '<leader>uf', function()
+      vim.keymap.set('n', '<leader>tf', function()
         neotest.run.run(vim.fn.expand '%')
-      end, { desc = 'run all [U]nit tests in [F]ile' })
+      end, { desc = 'run all [T]ests in [F]ile' })
 
-      vim.keymap.set('n', '<leader>du', function()
+      vim.keymap.set('n', '<leader>dt', function()
         neotest.run.run { strategy = 'dap' }
-      end, { desc = '[D]ebug this [U]nit test' })
+      end, { desc = '[D]ebug this [T]est' })
 
       vim.keymap.set('n', '<leader>da', function()
         neotest.run.run_last { strategy = 'dap' }
-      end, { desc = '[D]ebug previous [A]gain' })
+      end, { desc = '[D]ebug: previous [A]gain' })
 
-      vim.keymap.set('n', '<leader>ua', function()
+      vim.keymap.set('n', '<leader>ta', function()
         neotest.run.run_last {}
-      end, { desc = '[U]nittest previous [A]gain' })
+      end, { desc = '[T]est: previous [A]gain' })
     end,
   },
 }

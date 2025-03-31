@@ -33,7 +33,8 @@ return {
       vim.keymap.set('n', '<F11>', dap.step_into, { desc = 'Debug ' })
       vim.keymap.set('n', '<F12>', dap.step_out, { desc = 'Debug ' })
 
-      vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = 'Toggle [B]reakpoint' })
+      vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = 'toggle [B]reakpoint' })
+      -- TODO: Put these in the conditional keymaps with a more appropriate key, like _ and -
       vim.keymap.set('n', '<leader>df', dap.up, { desc = '[F]rame up' })
       vim.keymap.set('n', '<leader>dF', dap.down, { desc = '[F]rame down' })
     end,

@@ -110,20 +110,40 @@ return {
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-      vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch in [K]eymaps' })
+      -- Find in (external), broadest
+      vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind in [H]elp' })
+      vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind in [K]eymaps' })
+      vim.keymap.set('n', '<leader>fo', builtin.builtin, { desc = '[F]ind [O]ther...+' })
+      vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind in [D]iagnostics' })
+      -- Shortcut for searching your Neovim configuration files
+      vim.keymap.set('n', '<leader>fn', function()
+        builtin.find_files { cwd = vim.fn.stdpath 'config' }
+      end, { desc = '[F]ind in [N]eovim files' })
+
+      -- Open stuff on a file basis: Finding a file, and opening it. Re-opening an active buffer.
+      vim.keymap.set('n', '<leader>or', builtin.oldfiles, { desc = '[O]pen [R]ecent file ("." for repeat)' })
       -- Also find hidden files like `.bashrc`, but not files that are in the .gitignore
       vim.keymap.set('n', '<leader>of', function()
         builtin.find_files { hidden = true }
       end, { desc = '[O]pen [F]ile' })
-      vim.keymap.set('n', '<leader>so', builtin.builtin, { desc = '[S]earch [O]ther...+' })
-      vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind [W]ord under cursor' })
-      vim.keymap.set('n', '<leader>fa', builtin.live_grep, { desc = '[F]ind in [A]ll files (Grep)' })
-      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-      vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-      vim.keymap.set('n', '<leader>or', builtin.oldfiles, { desc = '[O]pen [R]ecent file ("." for repeat)' })
       vim.keymap.set('n', '<leader>ob', builtin.buffers, { desc = '[O]pen [B]uffer' })
 
+      -- Search Content of all files in workspace: Symbols in files, specific strings
+      vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch for [W]ord under cursor' })
+      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'live [G]rep' })
+      -- Repeated twice because we have the two places you might be coming from. Unfortuntaely there will be cross-contamination
+      vim.keymap.set('n', '<leader>sa', builtin.resume, { desc = '[S]earch for previous [A]gain' })
+      vim.keymap.set('n', '<leader>fa', builtin.resume, { desc = '[F]ind in previous [A]gain' })
+      -- It's also possible to pass additional configuration options.
+      --  See `:help telescope.builtin.live_grep()` for information about particular keys
+      vim.keymap.set('n', '<leader>s/', function()
+        builtin.live_grep {
+          grep_open_files = true,
+          prompt_title = 'live grep in Open Files',
+        }
+      end, { desc = '[S]earch [/] in Open Files' })
+
+      -- Search in current buffer
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
@@ -131,21 +151,7 @@ return {
           winblend = 10,
           previewer = false,
         })
-      end, { desc = 'Search this buffer' })
-
-      -- It's also possible to pass additional configuration options.
-      --  See `:help telescope.builtin.live_grep()` for information about particular keys
-      vim.keymap.set('n', '<leader>s/', function()
-        builtin.live_grep {
-          grep_open_files = true,
-          prompt_title = 'Live Grep in Open Files',
-        }
-      end, { desc = '[S]earch [/] in Open Files' })
-
-      -- Shortcut for searching your Neovim configuration files
-      vim.keymap.set('n', '<leader>sn', function()
-        builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = '[S]earch [N]eovim files' })
+      end, { desc = 'search this buffer' })
     end,
   },
 }

@@ -10,6 +10,7 @@ return {
       require('mini.ai').setup { n_lines = 500 }
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
+      -- Examples:
       -- `saw(` - add '(' around word
       -- `sa$'` - add `'` from this point up until the end of the line.
       -- `sr[(` - replace surrounding '[]' with '()', e.g. 'some (text  and) more' ￫ 'some [text and] more'

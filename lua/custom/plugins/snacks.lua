@@ -1,16 +1,19 @@
 return {
   'folke/snacks.nvim',
+  priority = 1000,
+  lazy = false,
+  ---@type snacks.Config
   opts = {
+
     -- Replacement for indentblankline
     -- indent = { enabled = true },
-    -- The ':' bar shows up in the middle of the screen
-    input = { enabled = true },
-    -- Prettier vim.notify- now stuff shows up on the right top
+    -- Other input from user (e.g. when renaming things) pop-up in nice floating window. Note that this is *NOT* the ':' window.
+    input = { enabled = true, expand = true },
+    -- Prettier vim.notify- now stuff shows up on the right top. This is stuff like 'changes found, reloading config', not stuff like 'rustanalyzer is running (which normally shows up bottom right)'.
     notifier = { enabled = true },
-    -- Scope detection
-    scope = { enabled = true },
+    -- Scope detection. I already use indent-blankline, so no need
+    -- scope = { enabled = true },
     -- Nicer whichkey display
-    toggle = { enabled = true },
-    words = { enabled = true },
+    -- toggle = { enabled = true, which_key = true },
   },
 }

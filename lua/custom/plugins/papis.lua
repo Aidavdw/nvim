@@ -17,8 +17,13 @@ return {
 
       -- Configuration of the search module.
       ['search'] = {
-        search_keys = { 'author', 'editor', 'year', 'title', 'tags', 'groups' },
+        -- Also allow searching by key ('ref').
+        search_keys = { 'ref', 'author', 'editor', 'year', 'title', 'tags', 'groups' },
       },
+      -- TODO: Show the 'key' in the results window too.
+      -- It shows up in the search preview as
+      --     { "ref", "%s", "PapisPreviewValue", "show_key", { "  ", "%s: " }, "PapisPreviewKey" },
+      -- but PapisPreviewKey is not avaiable in the results
     }
 
     -- Time to set up some keybinds!

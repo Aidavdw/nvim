@@ -62,7 +62,7 @@ return {
         { '<leader>d', group = '[D]ebugger' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>a', group = '[A]uto' },
-        { '<leader>g', group = '[G]oto' },
+        { '<leader>g', group = '[G]it / [G]oto' },
 
         -- when using a search/find, I arbitrarily make the distinction between:
         -- stuff on a file basis: Finding a file, and opening it. Re-opening an active buffer.
@@ -77,6 +77,7 @@ return {
         { '<leader>f', group = '[F]ind in (docs, help, external resources)' },
 
         { '<leader>t', group = '[T]est' },
+        { '<leader>c', group = '[C]itations' },
         { '<leader>p', group = '[P]opup show' },
         { '<leader>v', group = 'toggle [V]iew' },
         { '<leader>vg', group = 'toggle [V]iew [G]it' },

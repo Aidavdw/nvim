@@ -25,7 +25,7 @@ return {
       {
         '<leader>ws',
         '<cmd>Trouble symbols toggle focus=false<cr>',
-        desc = '[W]indow: [S]ymbols',
+        desc = '[W]indow: [S]ymbols present',
       },
     },
   },

@@ -64,7 +64,7 @@ vim.opt.scrolloff = 8
 -- Wrapping on a word basis, so you don't dutt of words so much.
 vim.o.linebreak = true
 -- Add character to start of wrapped line.
-vim.o.showbreak = ' ↪'
+vim.o.showbreak = ' 󱞵 '
 
 -- Otherwise checkboxes in obsidian.nvim don't always work.
 vim.o.conceallevel = 2

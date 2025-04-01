@@ -16,7 +16,7 @@ return {
   },
   attachments = {
     -- Where to place new images, also via `:ObsidianPasteImg`.
-    img_folder = 'media',
+    img_folder = 'obsidian-media',
   },
   config = function()
     local obsidian = require 'obsidian'
@@ -36,9 +36,9 @@ return {
     -- Unfortunately, obsidian.nvim is not very performant.
     -- Hence, forego the use of the following functionality for their alternatives:
     -- ObsidianQuickSwitch ￫ telescope open file
-    -- ObsidianSearch ￫ telescope livegrep
-    --
-    --
+    -- ObsidianSearch ￫ telescope livegrep.
+    -- See telescope file for these
+
     -- Open the note under the cursor in a split
     vim.keymap.set('n', '<leader>ol', ':ObsidianFollowLink vsplit<CR>', { silent = true, noremap = true, desc = '[O]pen [L]inked in split ' })
     vim.keymap.set('n', '<leader>ft', ':ObsidianBacklinks<CR>', { silent = true, noremap = true, desc = '[F]ind links [T]o others ' })

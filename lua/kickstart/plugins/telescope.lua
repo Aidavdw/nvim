@@ -116,9 +116,9 @@ return {
       vim.keymap.set('n', '<leader>fo', builtin.builtin, { desc = '[F]ind [O]ther...+' })
       vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind in [D]iagnostics' })
       -- Shortcut for searching your Neovim configuration files
-      vim.keymap.set('n', '<leader>fn', function()
+      vim.keymap.set('n', '<leader>fc', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = '[F]ind in [N]eovim files' })
+      end, { desc = '[F]ind in neovim [C]onfig' })
 
       -- Open stuff on a file basis: Finding a file, and opening it. Re-opening an active buffer.
       vim.keymap.set('n', '<leader>or', builtin.oldfiles, { desc = '[O]pen [R]ecent file ("." for repeat)' })
@@ -142,6 +142,22 @@ return {
           prompt_title = 'live grep in Open Files',
         }
       end, { desc = '[S]earch [/] in Open Files' })
+
+      -- open an obsidian note (text)
+      vim.keymap.set('n', '<leader>oo', function()
+        builtin.find_files {
+          cwd = '/alt/obsidian/notes/notes',
+          prompt_title = 'Obsidian notes',
+        }
+      end, { desc = '[O]pen [O]bsidian note' })
+
+      -- search inside obsidina notes (text)
+      vim.keymap.set('n', '<leader>so', function()
+        builtin.live_grep {
+          cwd = '/alt/obsidian/notes/notes',
+          prompt_title = 'in notes',
+        }
+      end, { desc = '[S]earch in obsidian [N]otes' })
 
       -- Search in current buffer
       -- Slightly advanced example of overriding default behavior and theme

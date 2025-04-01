@@ -111,6 +111,14 @@ return {
           { name = 'luasnip' },
           { name = 'path' },
           { name = 'papis' },
+          {
+            name = 'nvim_lsp',
+            option = {
+              markdown_oxide = {
+                keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
+              },
+            },
+          },
         },
         window = {
           completion = cmp.config.window.bordered(),

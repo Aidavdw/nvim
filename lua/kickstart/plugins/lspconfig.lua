@@ -83,6 +83,7 @@ return {
           map('<leader>gD', require('telescope.builtin').lsp_type_definitions, '[G]oto type [D]efinition')
 
           -- Find references for the word under your cursor.
+          -- For markdown_oxide, this is like 'backlinks'
           map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 
           -- Jump to the implementation of the word under your cursor.
@@ -111,6 +112,15 @@ return {
 
           -- Sometimes the diagnostics that are drawn in virtual text are very long, and go off the screen. Wrapping virtual text is impossible(?), but you can pop-up the entire message in a little window
           map('<leader>pd', vim.diagnostic.open_float, '[P]opup [D]iagnostic')
+
+          map('<leader>h', function()
+            -- See :h vim.lsp.utils.open_floating_preview.Opts for options here
+            vim.lsp.buf.hover()
+          end, 'LSP [H]over action')
+
+          map('<leader>wr', function()
+            vim.lsp.buf.references()
+          end, '[W]indow: [R]eferences to this')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
@@ -212,6 +222,18 @@ return {
               -- diagnostics = { disable = { 'missing-fields' } },
             },
           },
+        },
+        markdown_oxide = {
+          -- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
+          -- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
+          capabilities = vim.tbl_deep_extend('force', capabilities, {
+            workspace = {
+              didChangeWatchedFiles = {
+                dynamicRegistration = true,
+              },
+            },
+          }),
+          on_attach = on_attach, -- configure your on attach config
         },
       }
 

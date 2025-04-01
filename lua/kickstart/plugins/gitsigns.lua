@@ -56,7 +56,7 @@ return {
         -- Show changes in trouble window
         map('n', '<leader>wg', gitsigns.blame_line, { desc = '[W]indow: git hunks' })
         map('n', '<leader>gc', gitsigns.diffthis, { desc = '[G]it diff [C]hanged' })
-        map('n', '<leader>hD', function()
+        map('n', '<leader>gC', function()
           gitsigns.diffthis '@'
         end, { desc = '[G]it diff [C]hanged since previous commit' })
         -- Toggles display

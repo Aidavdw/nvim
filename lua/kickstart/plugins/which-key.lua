@@ -85,7 +85,6 @@ return {
         { '<leader>v', group = 'toggle [V]iew' },
         { '<leader>vg', group = 'toggle [V]iew [G]it' },
         { '<leader>w', group = 'show/hide [W]indow' },
-        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },
     },
   },

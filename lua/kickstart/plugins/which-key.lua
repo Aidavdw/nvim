@@ -63,6 +63,8 @@ return {
         { '<leader>r', group = '[R]ename' },
         { '<leader>a', group = '[A]uto' },
         { '<leader>g', group = '[G]it / [G]oto' },
+        { '<leader>gr', group = '[G]it [R]eset' },
+        { '<leader>gr', group = '[G]it [S]tash' },
 
         -- when using a search/find, I arbitrarily make the distinction between:
         -- stuff on a file basis: Finding a file, and opening it. Re-opening an active buffer.
@@ -70,6 +72,7 @@ return {
         -- Content of all files in workspace: Symbols in files, specific strings
         -- Deliberately on 's' in home row for colemak, because easier to reach. Most used.
         { '<leader>s', group = '[S]earch in workspace for (text, symbols)' },
+        { '<leader>b', group = '[B]uffer' },
         { '<leader>ss', group = '[S]earch [S]ymbols' },
         -- Content of this current buffer (same as above but limited)
         { '<leader>b', group = 'search in this [B]uffer for (text, symbols)' },

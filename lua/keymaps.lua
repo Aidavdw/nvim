@@ -26,6 +26,18 @@ vim.api.nvim_set_keymap('n', '<leader>n', '<C-w>w', { noremap = true, silent = t
 -- Search through all todos, as marked with 'TODO_:', 'WARN_:' etc
 vim.keymap.set('n', '<leader>wq', '<cmd>TodoTelescope keywords=TODO,FIX,PERF', { desc = '[F]ind open [T]odos' })
 
+-- manually toggle the line wrap. Useful when stuff breaks because of line wrapping or lack thereof. Looking at you, markview.
+local line_wrap = true
+vim.keymap.set('n', '<leader>vw', function()
+  if line_wrap then
+    vim.o.wrap = false
+    line_wrap = false
+  else
+    vim.o.wrap = true
+    line_wrap = true
+  end
+end, { desc = 'toggle [V]iew: Word [W]rap' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.

@@ -40,27 +40,26 @@ return {
           end
         end, { desc = 'Jump to previous git [c]hange' })
 
-        -- Actions
-        -- visual mode
-        map('v', '<leader>hs', function()
-          gitsigns.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
-        end, { desc = 'git [s]tage hunk' })
-        map('v', '<leader>hr', function()
-          gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
-        end, { desc = 'git [r]eset hunk' })
-        -- normal mode
-        map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'git [s]tage hunk' })
-        map('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'git [r]eset hunk' })
-        map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'git [S]tage buffer' })
-        map('n', '<leader>hu', gitsigns.undo_stage_hunk, { desc = 'git [u]ndo stage hunk' })
-        map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
-        map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'git [p]review hunk' })
-        map('n', '<leader>hb', gitsigns.blame_line, { desc = 'git [b]lame line' })
-        map('n', '<leader>hd', gitsigns.diffthis, { desc = 'git [d]iff against index' })
+        -- git stage
+        map('n', '<leader>gsh', gitsigns.stage_hunk, { desc = '[G]it [S]tage [H]unk' })
+        map('n', '<leader>gsb', gitsigns.stage_buffer, { desc = '[G]it [S]tage [B]uffer' })
+        map('n', '<leader>gsu', gitsigns.undo_stage_hunk, { desc = '[G]it [S]tage [U]ndo' })
+        -- git reset
+        map('n', '<leader>grh', gitsigns.reset_hunk, { desc = '[G]it [R]eset [H]unk' })
+        map('n', '<leader>grb', gitsigns.reset_buffer, { desc = '[G]it [R]eset [B]uffer' })
+
+        -- Open a little popup window showing what has changed
+        map('n', '<leader>ph', gitsigns.preview_hunk, { desc = '[P]opup git [H]unk' })
+
+        -- Popup window showing git blame
+        map('n', '<leader>pb', gitsigns.blame_line, { desc = '[P]opup git [H]unk' })
+        -- Show changes in trouble window
+        map('n', '<leader>wg', gitsigns.blame_line, { desc = '[W]indow: git hunks' })
+        map('n', '<leader>gc', gitsigns.diffthis, { desc = '[G]it diff [C]hanged' })
         map('n', '<leader>hD', function()
           gitsigns.diffthis '@'
-        end, { desc = 'git [D]iff against last commit' })
-        -- Toggles
+        end, { desc = '[G]it diff [C]hanged since previous commit' })
+        -- Toggles display
         map('n', '<leader>vgb', gitsigns.toggle_current_line_blame, { desc = 'toggle [V]iew: [G]it [B]lame in line' })
         map('n', '<leader>vgd', gitsigns.toggle_deleted, { desc = 'toggle [V]iew: [G]it [D]eleted in line' })
       end,

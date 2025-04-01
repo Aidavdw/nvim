@@ -1,5 +1,13 @@
 # kickstart-modular.nvim
 
+# To do
+- TODO: plugin that automatically continues list input (enter inserts a -)
+- TODO: Spell checking plugin with toggle on/off, with keybind to go to next spelling error. Youtube video by John McBride - Neovim: How to setup the spell checker
+- snippets for 'jpn example sentence'. Lazyvim has a thing.
+- keybind for moving between markdown headings (and functions on an LSP level?)
+- keymap for folding markdown headings (and functions?). Ideally per level
+- Add markdown code lens https://oxide.md/v0/Guides/Getting+started+with+Markdown+Oxide+Version+0
+
 ## Introduction
 
 *This is a fork of [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) that moves from a single file to a multi file configuration.*

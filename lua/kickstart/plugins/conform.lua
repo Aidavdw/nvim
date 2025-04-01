@@ -6,12 +6,12 @@ return {
     keys = {
       {
         -- Propably not used as much, since autoformat on save. Still nice to have as a backup.
-        '<leader>af',
+        '<leader>ba',
         function()
           require('conform').format { async = true, lsp_format = 'fallback' }
         end,
         mode = '',
-        desc = '[A]uto[F]ormat buffer',
+        desc = '[B]uffer: Auto[F]ormat',
       },
     },
     opts = {

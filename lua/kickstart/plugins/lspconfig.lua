@@ -80,7 +80,7 @@ return {
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
-          map('<leader>gD', require('telescope.builtin').lsp_type_definitions, 'type [D]efinition')
+          map('<leader>gD', require('telescope.builtin').lsp_type_definitions, '[G]oto type [D]efinition')
 
           -- Find references for the word under your cursor.
           map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')

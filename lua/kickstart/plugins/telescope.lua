@@ -68,6 +68,33 @@ return {
             require('telescope.themes').get_ivy(),
           },
         },
+        pickers = {
+          find_files = {
+            find_command = {
+              'rg',
+              '--files',
+              '--color=never',
+              '--no-heading',
+              '--smart-case',
+              -- Allow looking through hidden files.
+              '--hidden',
+              -- If --hidden is set, then git folders are also looked through. Filter them again.
+              '-g',
+              '!.github/',
+              '-g',
+              '!.git/',
+              -- And more files to ignore
+              '-g',
+              '!Cargo.lock',
+              '-g',
+              '!license.*',
+              '-g',
+              '!LICENSE.*',
+              '-g',
+              '!LICENSE',
+            },
+          },
+        },
         defaults = {
           mappings = {
             i = {

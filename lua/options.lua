@@ -68,7 +68,4 @@ vim.o.linebreak = true
 -- Add character to start of wrapped line.
 vim.o.showbreak = ' 󱞵 '
 
--- Otherwise checkboxes in obsidian.nvim don't always work.
-vim.o.conceallevel = 2
-
 -- vim: ts=2 sts=2 sw=2 et

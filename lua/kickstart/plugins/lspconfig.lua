@@ -233,7 +233,6 @@ return {
               },
             },
           }),
-          on_attach = on_attach, -- configure your on attach config
         },
       }
 

@@ -6,7 +6,6 @@
 - snippets for 'jpn example sentence'. Lazyvim has a thing.
 - keybind for moving between markdown headings (and functions on an LSP level?)
 - keymap for folding markdown headings (and functions?). Ideally per level
-- Add markdown code lens https://oxide.md/v0/Guides/Getting+started+with+Markdown+Oxide+Version+0
 
 ## Introduction
 

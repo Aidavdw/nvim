@@ -173,7 +173,7 @@ return {
       -- open an obsidian note (text)
       vim.keymap.set('n', '<leader>oo', function()
         builtin.find_files {
-          cwd = '/alt/obsidian/notes/notes',
+          cwd = '~/notes',
           prompt_title = 'Obsidian notes',
         }
       end, { desc = '[O]pen [O]bsidian note' })
@@ -181,7 +181,7 @@ return {
       -- search inside obsidina notes (text)
       vim.keymap.set('n', '<leader>so', function()
         builtin.live_grep {
-          cwd = '/alt/obsidian/notes/notes',
+          cwd = '~/notes',
           prompt_title = 'in notes',
         }
       end, { desc = '[S]earch in obsidian [N]otes' })

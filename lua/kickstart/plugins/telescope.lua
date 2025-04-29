@@ -9,7 +9,9 @@ return {
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
-    branch = '0.1.x',
+    -- in nvim v.0.11, Telescope lsp_dynamic_workspace_symbols gives errors. This has been fixed in the main branch, but not yet in release.
+    -- FIXME: Be sure to un-comment this when a new release comes out.!
+    -- branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for installation instructions

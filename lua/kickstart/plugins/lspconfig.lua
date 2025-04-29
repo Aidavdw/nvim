@@ -283,6 +283,7 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'yamlfix', -- Formatter for yaml
+        'shfmt', -- Formatter for sh/bash
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

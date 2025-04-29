@@ -1,7 +1,6 @@
 # kickstart-modular.nvim
 
 # To do
-- TODO: plugin that automatically continues list input (enter inserts a -)
 - TODO: Spell checking plugin with toggle on/off, with keybind to go to next spelling error. Youtube video by John McBride - Neovim: How to setup the spell checker
 - snippets for 'jpn example sentence'. Lazyvim has a thing.
 - keybind for moving between markdown headings (and functions on an LSP level?)

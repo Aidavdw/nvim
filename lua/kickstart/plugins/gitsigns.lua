@@ -51,9 +51,8 @@ return {
         end, { desc = 'Jump to previous git [c]hange' })
 
         -- git stage
-        map('n', '<leader>gsh', gitsigns.stage_hunk, { desc = '[G]it [S]tage [H]unk' })
+        map('n', '<leader>gsh', gitsigns.stage_hunk, { desc = '[G]it [S]tage [H]unk (toggle)' })
         map('n', '<leader>gsb', gitsigns.stage_buffer, { desc = '[G]it [S]tage [B]uffer' })
-        map('n', '<leader>gsu', gitsigns.undo_stage_hunk, { desc = '[G]it [S]tage [U]ndo' })
         -- git reset
         map('n', '<leader>grh', gitsigns.reset_hunk, { desc = '[G]it [R]eset [H]unk' })
         map('n', '<leader>grb', gitsigns.reset_buffer, { desc = '[G]it [R]eset [B]uffer' })
@@ -62,13 +61,14 @@ return {
         map('n', '<leader>ph', gitsigns.preview_hunk, { desc = '[P]opup git [H]unk' })
 
         -- Popup window showing git blame
-        map('n', '<leader>pb', gitsigns.blame_line, { desc = '[P]opup git [H]unk' })
+        map('n', '<leader>pb', gitsigns.blame_line, { desc = '[P]opup git [B]lame' })
         -- Show changes in trouble window
-        map('n', '<leader>wg', gitsigns.blame_line, { desc = '[W]indow: git hunks' })
-        map('n', '<leader>gc', gitsigns.diffthis, { desc = '[G]it diff [C]hanged' })
-        map('n', '<leader>gC', function()
+        -- TODO: Check- I think this is not a thing?
+        -- map('n', '<leader>wg', gitsigns.blame_line, { desc = '[W]indow: git hunks' })
+        map('n', '<leader>wg', gitsigns.diffthis, { desc = '[W]indow: [G]it changes' })
+        map('n', '<leader>wG', function()
           gitsigns.diffthis '@'
-        end, { desc = '[G]it diff [C]hanged since previous commit' })
+        end, { desc = '[W]indow: [G]it changes (since last commit)' })
         -- Toggles display
         map('n', '<leader>vgb', gitsigns.toggle_current_line_blame, { desc = 'toggle [V]iew: [G]it [B]lame in line' })
       end,

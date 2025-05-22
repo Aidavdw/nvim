@@ -237,7 +237,26 @@ return {
         -- ts_ls = {},
         --
         --
-        basedpyright = {},
+        basedpyright = {
+          settings = {
+            basedpyright = {
+              -- basedpyright in lspconfig cannot read a pyrightconfig.json file in a static location.
+              -- Instead, just pass the options into 'analysis' directly.
+              analysis = {
+                -- TODO: This should not be necessary if pyright can actually find stubs for all libraries.
+                typeCheckingMode = 'standard',
+              },
+              -- Let ruff handle organising imports.
+              disableOrganizeImports = true,
+            },
+          },
+        },
+        ruff = {
+          on_attach = function(client, bufnr)
+            -- Disable Ruff's hover to allow BasedPyright to handle it, since basedpyright does it better.
+            client.server_capabilities.hoverProvider = false
+          end,
+        },
 
         lua_ls = {
           -- cmd = { ... },

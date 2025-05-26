@@ -34,6 +34,7 @@ return {
         lua = { 'stylua' },
         yaml = { 'yamlfix' },
         sh = { 'shfmt' },
+        json = { 'fixjson' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --

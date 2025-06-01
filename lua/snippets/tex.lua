@@ -18,6 +18,7 @@ add(s('equation', {
   t { '', '\\end{equation}' },
 }))
 
+-- A table of 2 columns wide
 add(s('table2w', {
   -- 'ht' prefers placing it here, but otherwise the top of the page is also OK.
   -- 'H' places it exactly here.
@@ -39,6 +40,7 @@ add(s('table2w', {
   t { ' \\\\', '\\bottomrule', '\\end{tabular}', '\\end{table}' },
 }))
 
+-- A table of 2 columns wide
 add(s('table3w', {
   t { '\\begin{table}[ht]', '\\centering', '\\label{tab:' },
   i(1),
@@ -62,6 +64,60 @@ add(s('table3w', {
   t { ' \\\\', '\\bottomrule', '\\end{tabular}', '\\end{table}' },
 }))
 
+add(s('figure', {
+  t { '\\begin{figure}[ht]', '\\centering', '\\includegraphics[width=0.8\\textwidth]{' },
+  i(1),
+  t { '}', '\\label{fig:' },
+  i(2),
+  t { '}', '\\caption{' },
+  i(3),
+  t { '}', '\\end{figure}' },
+}))
+
+add(s('\\autoref', {
+  t { '\\autoref{' },
+  i(1),
+  t { '}' },
+}))
+
+add(s('\\acrshort', {
+  t { '\\acrshort{' },
+  i(1),
+  t { '}' },
+}))
+
+add(s('\\textcite', {
+  t { '\\textcite{' },
+  i(1),
+  t { '}' },
+}))
+
+add(s('\\cite', {
+  t { '\\cite{' },
+  i(1),
+  t { '}' },
+}))
+
+add(s('subfigure2w', {
+  t { '\\begin{figure}', '\\centering', '\\begin{subfigure}[htb]{0.44\\textwidth}', '\\centering', '\\includegraphics[width=\\textwidth]{' },
+  i(1),
+  t { '}', '\\label{fig:' },
+  i(2),
+  t { '}', '\\caption{' },
+  i(3),
+  t { '}', '\\end{subfigure}', '\\hfill', '\\begin{subfigure}[htb]{0.44\\textwidth}', '\\centering', '\\includegraphics[width=\\textwidth]{' },
+  i(4),
+  t { '}', '\\label{fig:' },
+  i(5),
+  t { '}', '\\caption{' },
+  i(6),
+  -- A shared caption and label too.
+  t { '}', '\\end{subfigure}', '\\caption{' },
+  i(7),
+  t { '}', '\\label{fig:' },
+  i(8),
+  t { '}', '\\end{figure}' },
+}))
 -- There is a rather complex script that automatically does latex tables.
 -- Dynamic latex table, taken from https://github.com/L3MON4D3/LuaSnip/wiki/Misc#dynamicnode-with-user-input
 

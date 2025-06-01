@@ -257,6 +257,16 @@ return {
             client.server_capabilities.hoverProvider = false
           end,
         },
+        texlab = {
+          settings = {
+            -- FIXME: I want to use tex-fmt instead of indentlatex.
+            -- There is a feature for it, even inside of texlab: https://github.com/latex-lsp/texlab/pull/1321
+            -- However, selecting it as 'textfmt' or 'tex-fmt' does not seem to work.
+            -- Strangely, completely disabling it does also not seem to work.
+            -- I'll see if I can fix this another time.
+            latexFormatter = 'none',
+          },
+        },
 
         lua_ls = {
           -- cmd = { ... },

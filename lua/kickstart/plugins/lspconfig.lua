@@ -282,6 +282,17 @@ return {
             },
           },
         },
+        typos_lsp = {
+          init_options = {
+            -- Global config file. Used together with a config file found in the workspace or its parents,
+            -- taking precedence for settings declared in both.
+            -- Equivalent to the typos `--config` cli argument.
+            config = '~/.config/nvim/typos.toml',
+            -- How typos are rendered in the editor, can be one of an Error, Warning, Info or Hint.
+            -- Defaults to error.
+            diagnosticSeverity = 'Error',
+          },
+        },
         markdown_oxide = {
           -- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
           -- Create Unresolved File code action, resolving completions for unindexed code blocks, ...

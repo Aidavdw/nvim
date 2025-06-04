@@ -40,13 +40,13 @@ add(s('table2w', {
   t { ' \\\\', '\\bottomrule', '\\end{tabular}', '\\end{table}' },
 }))
 
--- A table of 2 columns wide
+-- A table of 3 columns wide
 add(s('table3w', {
   t { '\\begin{table}[ht]', '\\centering', '\\label{tab:' },
   i(1),
   t { '}', '\\caption{' },
   i(2),
-  t { '}', '\\begin{tabular}{lcs}\\toprule', '    & ' },
+  t { '}', '\\begin{tabular}{lcc}\\toprule', '    & ' },
   i(3),
   t { ' & ' },
   i(4),
@@ -61,6 +61,34 @@ add(s('table3w', {
   i(8),
   t { ' & ' },
   i(9),
+  t { ' \\\\', '\\bottomrule', '\\end{tabular}', '\\end{table}' },
+}))
+
+-- A table of 4 columns wide
+add(s('table4w', {
+  t { '\\begin{table}[ht]', '\\centering', '\\label{tab:' },
+  i(1),
+  t { '}', '\\caption{' },
+  i(2),
+  t { '}', '\\begin{tabular}{lccc}\\toprule', '    & ' },
+  i(3),
+  t { ' & ' },
+  i(4),
+  t { ' & ' },
+  i(5),
+  t { ' & ' },
+  -- Can add a \cmidrule for if you you have a multi-layer heading and need a small center line here too
+  i(6),
+  t { ' \\\\', '\\midrule', '% copy-paste the line under here for how many lines you need.', ' ' },
+  i(7),
+  t { ' & ' },
+  i(8),
+  t { ' & ' },
+  i(9),
+  t { ' & ' },
+  i(10),
+  t { ' & ' },
+  i(11),
   t { ' \\\\', '\\bottomrule', '\\end{tabular}', '\\end{table}' },
 }))
 

@@ -15,4 +15,8 @@ add(s('alias', {
   t { '', '---' },
 }))
 
+add(s('checkbox', {
+  t { '- [ ] ' },
+}))
+
 return snippets

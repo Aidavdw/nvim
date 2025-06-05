@@ -257,16 +257,17 @@ return {
             client.server_capabilities.hoverProvider = false
           end,
         },
-        texlab = {
-          settings = {
-            -- FIXME: I want to use tex-fmt instead of indentlatex.
-            -- There is a feature for it, even inside of texlab: https://github.com/latex-lsp/texlab/pull/1321
-            -- However, selecting it as 'textfmt' or 'tex-fmt' does not seem to work.
-            -- Strangely, completely disabling it does also not seem to work.
-            -- I'll see if I can fix this another time.
-            latexFormatter = 'none',
-          },
-        },
+        -- Texlab is very slow and keeps timing out.
+        -- texlab = {
+        --   settings = {
+        --     -- FIXME: I want to use tex-fmt instead of indentlatex.
+        --     -- There is a feature for it, even inside of texlab: https://github.com/latex-lsp/texlab/pull/1321
+        --     -- However, selecting it as 'textfmt' or 'tex-fmt' does not seem to work.
+        --     -- Strangely, completely disabling it does also not seem to work.
+        --     -- I'll see if I can fix this another time.
+        --     latexFormatter = 'none',
+        --   },
+        -- },
 
         lua_ls = {
           -- cmd = { ... },
@@ -283,14 +284,18 @@ return {
           },
         },
         typos_lsp = {
+          -- FIXME: I just cannot get lspconfig to respec the settings I pass:
+          -- I tried a whole bunch of things
+          -- Closest: https://github.com/tekumara/typos-lsp/issues/17.
+          cmd_env = { RUST_LOG = 'error' },
           init_options = {
             -- Global config file. Used together with a config file found in the workspace or its parents,
             -- taking precedence for settings declared in both.
             -- Equivalent to the typos `--config` cli argument.
-            config = '~/.config/nvim/typos.toml',
+            -- config = vim.fn.expand '~/.config/nvim/typos.toml',
             -- How typos are rendered in the editor, can be one of an Error, Warning, Info or Hint.
             -- Defaults to error.
-            diagnosticSeverity = 'Error',
+            diagnosticSeverity = 'Warning',
           },
         },
         markdown_oxide = {

@@ -35,6 +35,7 @@ return {
         yaml = { 'yamlfix' },
         sh = { 'shfmt' },
         json = { 'fixjson' },
+        tex = { 'tex-fmt' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --

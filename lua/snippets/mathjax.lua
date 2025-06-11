@@ -17,4 +17,10 @@ add(s('frac', {
   t { '}' },
 }))
 
+add(s('EN', {
+  t { '\\times 10^{' },
+  i(1),
+  t { '}' },
+}))
+
 return snippets

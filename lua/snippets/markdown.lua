@@ -3,7 +3,8 @@ local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
 
-local snippets = {}
+-- Load everything from mathjax here too
+local snippets = require 'snippets.mathjax'
 
 local function add(snippet)
   table.insert(snippets, snippet)

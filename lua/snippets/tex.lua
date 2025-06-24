@@ -22,9 +22,10 @@ add(s('equation', {
 add(s('table2w', {
   -- 'ht' prefers placing it here, but otherwise the top of the page is also OK.
   -- 'H' places it exactly here.
-  t { '\\begin{table}[ht]', '\\centering', '\\label{tab:' },
+  t { '\\begin{table}[ht]', '\\centering', '\\caption{' },
   i(1),
-  t { '}', '\\caption{' },
+  -- Label must come after fig, because otherwise you can't \ref it.
+  t { '}', '\\label{tab:' },
   i(2),
   t { '}', '\\begin{tabular}{lcc}\\toprule', ' ' },
   i(3),
@@ -41,9 +42,10 @@ add(s('table2w', {
 add(s('table3w', {
   -- 'ht' prefers placing it here, but otherwise the top of the page is also OK.
   -- 'H' places it exactly here.
-  t { '\\begin{table}[ht]', '\\centering', '\\label{tab:' },
+  t { '\\begin{table}[ht]', '\\centering', '\\caption{' },
   i(1),
-  t { '}', '\\caption{' },
+  -- Label must come after fig, because otherwise you can't \ref it.
+  t { '}', '\\label{tab' },
   i(2),
   t { '}', '\\begin{tabular}{lcc}\\toprule', '    & ' },
   i(3),
@@ -61,9 +63,10 @@ add(s('table3w', {
 
 -- A table of 4 columns wide
 add(s('table4w', {
-  t { '\\begin{table}[ht]', '\\centering', '\\label{tab:' },
+  t { '\\begin{table}[ht]', '\\centering', '\\caption{' },
   i(1),
-  t { '}', '\\caption{' },
+  -- Label must come after fig, because otherwise you can't \ref it.
+  t { '}', '\\label{tab:' },
   i(2),
   t { '}', '\\begin{tabular}{lccc}\\toprule', '    & ' },
   i(3),
@@ -84,9 +87,10 @@ add(s('table4w', {
 
 -- A table of 5 columns wide
 add(s('table5w', {
-  t { '\\begin{table}[ht]', '\\centering', '\\label{tab:' },
+  t { '\\begin{table}[ht]', '\\centering', '\\caption{' },
   i(1),
-  t { '}', '\\caption{' },
+  -- Label must come after fig, because otherwise you can't \ref it.
+  t { '}', '\\label{tab:' },
   i(2),
   t { '}', '\\begin{tabular}{lcccc}\\toprule', '    & ' },
   i(3),
@@ -110,11 +114,12 @@ add(s('table5w', {
 }))
 
 add(s('figure', {
-  t { '\\begin{figure}[ht]', '\\centering', '\\includegraphics[width=0.8\\textwidth]{' },
+  t { '\\begin{figure}[htbp]', '\\centering', '\\includegraphics[width=0.8\\textwidth]{' },
   i(1),
-  t { '}', '\\label{fig:' },
-  i(2),
   t { '}', '\\caption{' },
+  i(2),
+  -- Label must come after fig, because otherwise you can't \ref it.
+  t { '}', '\\label{fig:' },
   i(3),
   t { '}', '\\end{figure}' },
 }))
@@ -143,18 +148,26 @@ add(s('\\cite', {
   t { '}' },
 }))
 
+add(s('verbatim', {
+  t { '\\verb|' },
+  i(1),
+  t { '|' },
+}))
+
 add(s('subfigure2w', {
   t { '\\begin{figure}', '\\centering', '\\begin{subfigure}[htb]{0.44\\textwidth}', '\\centering', '\\includegraphics[width=\\textwidth]{' },
   i(1),
-  t { '}', '\\label{fig:' },
-  i(2),
   t { '}', '\\caption{' },
+  i(2),
+  -- Label must come after fig, because otherwise you can't \ref it.
+  t { '}', '\\label{fig:' },
   i(3),
   t { '}', '\\end{subfigure}', '\\hfill', '\\begin{subfigure}[htb]{0.44\\textwidth}', '\\centering', '\\includegraphics[width=\\textwidth]{' },
   i(4),
-  t { '}', '\\label{fig:' },
-  i(5),
   t { '}', '\\caption{' },
+  i(5),
+  -- Label must come after fig, because otherwise you can't \ref it.
+  t { '}', '\\label{fig:' },
   i(6),
   -- A shared caption and label too.
   t { '}', '\\end{subfigure}', '\\caption{' },
@@ -167,13 +180,13 @@ add(s('subfigure2w', {
 -- Dynamic latex table, taken from https://github.com/L3MON4D3/LuaSnip/wiki/Misc#dynamicnode-with-user-input
 
 add(s('enumerate', {
-  t { '\begin{enumeration}', '  \\item ' },
+  t { '\\begin{enumerate}', '  \\item ' },
   i(1),
   t { '', '\\end{enumerate}' },
 }))
 
 add(s('itemize', {
-  t { '\begin{itemize}', '  \\item ' },
+  t { '\\begin{itemize}', '  \\item ' },
   i(1),
   t { '', '\\end{itemize}' },
 }))

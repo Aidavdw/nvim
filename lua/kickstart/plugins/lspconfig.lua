@@ -283,21 +283,6 @@ return {
             },
           },
         },
-        typos_lsp = {
-          -- FIXME: I just cannot get lspconfig to respec the settings I pass:
-          -- I tried a whole bunch of things
-          -- Closest: https://github.com/tekumara/typos-lsp/issues/17.
-          cmd_env = { RUST_LOG = 'error' },
-          init_options = {
-            -- Global config file. Used together with a config file found in the workspace or its parents,
-            -- taking precedence for settings declared in both.
-            -- Equivalent to the typos `--config` cli argument.
-            -- config = vim.fn.expand '~/.config/nvim/typos.toml',
-            -- How typos are rendered in the editor, can be one of an Error, Warning, Info or Hint.
-            -- Defaults to error.
-            diagnosticSeverity = 'Warning',
-          },
-        },
         markdown_oxide = {
           -- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
           -- Create Unresolved File code action, resolving completions for unindexed code blocks, ...

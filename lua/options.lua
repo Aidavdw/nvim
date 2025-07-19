@@ -78,4 +78,7 @@ vim.opt.spelllang = { 'en_gb', 'nl', 'de', 'cjk' }
 vim.opt.spell = true
 vim.opt.spelloptions = 'camel'
 
+-- Vim looks for some keywords to determine if a file is PlainTeX, CoNTeXT, or LaTeX. This setting makes it revert to latex if keywords are not found.
+vim.g.tex_flavor = 'latex'
+
 -- vim: ts=2 sts=2 sw=2 et

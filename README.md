@@ -5,7 +5,10 @@
 - snippets for 'jpn example sentence'. Lazyvim has a thing.
 - keybind for moving between markdown headings (and functions on an LSP level?)
 - keymap for folding markdown headings (and functions?). Ideally per level
-
+- Add nvim-numbertoggle (only relative numbers in normal mode, otherwise use absolute)
+- Reformat like Xero's: https://github.com/xero/dotfiles/tree/main/neovim/.config/nvim 
+- From xero: Add helper functions for setting/overriding keymaps. Add functionality for checking for duplicate assignments. Add a flag that you can manually turn on or off so you don't always run this whenever you start nvim.
+ 
 ## Introduction
 
 *This is a fork of [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) that moves from a single file to a multi file configuration.*

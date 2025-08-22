@@ -74,6 +74,11 @@ vim.o.showbreak = ' 󱞵 '
 vim.opt.confirm = true
 
 -- Use spell checking
+-- Loading all spell files makes spell checking really slow.
+-- TODO: allow toggling languages on and off, as done in
+-- linkarzu https://www.youtube.com/watch?v=uLFAMYFmpkE.
+-- English_gb should always be loaded. cjk, nl and de toggleable (with english still enabled too).
+-- All custom words should just go in a english.
 vim.opt.spelllang = { 'en_gb', 'nl', 'de', 'cjk' }
 vim.opt.spell = true
 vim.opt.spelloptions = 'camel'

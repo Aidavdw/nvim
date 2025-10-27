@@ -39,7 +39,7 @@ vim.keymap.set('n', '<leader>vw', function()
 end, { desc = 'toggle [V]iew: Word [W]rap' })
 
 -- Open netrw (file browser)
-vim.keymap.set('n', '<leader>on', ':Ex', { desc = '[O]pen [N]etrw (file browser)' })
+vim.keymap.set('n', '<leader>on', ':Ex<CR>', { desc = '[O]pen [N]etrw (file browser)' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -83,5 +83,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- vimdiff commands
+vim.keymap.set('n', '<leader>gp', ':diffput<CR>', { desc = '(diff) apply left (first) side' })
+vim.keymap.set('n', '<leader>gg', ':diffget<CR>', { desc = '(diff) apply right (second) side' })
 
 -- vim: ts=2 sts=2 sw=2 et
